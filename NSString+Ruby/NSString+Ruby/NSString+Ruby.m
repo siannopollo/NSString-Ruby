@@ -36,8 +36,12 @@
   return [NSString stringWithString:string];
 }
 
+@end
+
+@implementation NSMutableString (Ruby)
+
 - (NSString *)chomp:(BOOL)modify {
-  self = [NSString stringWithString:[self chomp]];
+  [self setString:[self chomp]];
   return self;
 }
 
