@@ -69,4 +69,19 @@
   STAssertTrue([string isEqualToString:@"YA"], @"your string is %@", string);
 }
 
+- (void)testCapitalize {
+  STAssertTrue([string respondsToSelector:@selector(capitalize)], @"");
+  [string setString:@"capitalize me"];
+  NSMutableString *otherString = [[string capitalize] mutableCopy];
+  
+  STAssertTrue([otherString isEqualToString:@"Capitalize Me"], @"your capitalized string is %@", otherString);
+}
+
+- (void)testModifyCapitalize {
+  STAssertTrue([string respondsToSelector:@selector(capitalize:)], @"");
+  [string setString:@"capitalize me"];
+  [string capitalize:YES];
+  STAssertTrue([string isEqualToString:@"Capitalize Me"], @"your capitalized string is %@", string);
+}
+
 @end

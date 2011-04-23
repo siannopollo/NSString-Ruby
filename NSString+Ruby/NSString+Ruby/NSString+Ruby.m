@@ -36,12 +36,21 @@
   return [NSString stringWithString:string];
 }
 
+- (NSString *)capitalize {
+  return [self capitalizedString];
+}
+
 @end
 
 @implementation NSMutableString (Ruby)
 
 - (NSString *)chomp:(BOOL)modify {
   [self setString:[self chomp]];
+  return self;
+}
+
+- (NSString *)capitalize:(BOOL)modify {
+  [self setString:[self capitalize]];
   return self;
 }
 
